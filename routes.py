@@ -8,11 +8,11 @@ api_ns = Namespace("API", description="Основные маршруты")
 @api_ns.route("/users")
 class Users(Resource):
     def get(self):
-        """Получить список пользователей"""
+        """Получаем список всех пользователей"""
         return jsonify(list(users.values()))
 
     def post(self):
-        """Создать нового пользователя"""
+        """Создание нового пользователя"""
         if not request.is_json:
             return {"error": "Content-Type must be application/json"}, 415
         data = request.get_json()
@@ -25,11 +25,11 @@ class Users(Resource):
 @api_ns.route("/posts")
 class Posts(Resource):
     def get(self):
-        """Получить список постов"""
+        """Получаем список всех постов"""
         return jsonify(list(posts.values()))
 
     def post(self):
-        """Создать новый пост"""
+        """Создаем новый пост"""
         if not request.is_json:
             return {"error": "Content-Type must be application/json"}, 415
         data = request.get_json()
